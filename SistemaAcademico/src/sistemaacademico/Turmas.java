@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  */
 /*
 * Nome.......: Turmas
-* Objetivo...: Representar uma turma da instituição de ensino.
+* Objetivo...: Representar uma turma da instituiï¿½ï¿½o de ensino.
 * Observacoes:
 */
 public class Turmas extends Coisa {
@@ -98,7 +98,7 @@ public class Turmas extends Coisa {
      int aux = turmasCad.size();
     for (i = 0; i < aux - 1; i++ ) {
       if (turmasCad.get( i ).getCodigo() == turmasCad.get( aux -1 ).getCodigo()) {
-        JOptionPane.showMessageDialog( null, "Codigo ja utilizado." );
+        JOptionPane.showMessageDialog( null, "Codigo jÃ¡ utilizado." );
         turmasCad.remove( aux - 1 );
         return;
       }
@@ -119,7 +119,7 @@ public class Turmas extends Coisa {
        else {   
        for (i = 0; i < turmasCad.size(); i++ ) {
          if (turmasCad.get( i ).getCodigo() == codigo) {
-           JOptionPane.showMessageDialog( null, "Codigo ja utilizado." );
+           JOptionPane.showMessageDialog( null, "Codigo jÃ¡ utilizado." );
            return 0;
          }
        }

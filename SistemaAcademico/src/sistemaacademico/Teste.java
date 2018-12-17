@@ -80,39 +80,8 @@ public class Teste {
 		}
 	}
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-				if ("Nimbus".equals(info.getName())) {
-					javax.swing.UIManager.setLookAndFeel(info.getClassName());
-					break;
-				}
-			}
-		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(Teste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(Teste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(Teste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(Teste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		}
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Teste window = new Teste();
-					window.frmTurmas.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 
-	}
-
+	
 	/**
 	 * Create the application.
 	 */
@@ -139,7 +108,7 @@ public class Teste {
 		JFormattedTextField textField_Pesquisar = new JFormattedTextField();
 		textField_Pesquisar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		textField_Pesquisar.setBounds(690, 236, 60, 22);
-		frmTurmas.getContentPane().add(textField_Pesquisar);
+		getFrmTurmas().getContentPane().add(textField_Pesquisar);
 	}
 
 	/**
@@ -285,15 +254,15 @@ public class Teste {
 	 * INICIALIZAÇÃO DOS COMPONENTES
 	 */
 	private void initialize() {
-		frmTurmas = new JFrame();
-		frmTurmas.getContentPane().setForeground(Color.RED);
-		frmTurmas.setForeground(Color.GREEN);
-		frmTurmas.setTitle("TURMAS");
-		frmTurmas.setBackground(Color.RED);
-		frmTurmas.getContentPane().setBackground(new Color(102, 153, 204));
-		frmTurmas.setBounds(100, 100, 788, 487);
-		frmTurmas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmTurmas.getContentPane().setLayout(null);
+		setFrmTurmas(new JFrame());
+		getFrmTurmas().getContentPane().setForeground(Color.RED);
+		getFrmTurmas().setForeground(Color.GREEN);
+		getFrmTurmas().setTitle("TURMAS");
+		getFrmTurmas().setBackground(Color.RED);
+		getFrmTurmas().getContentPane().setBackground(new Color(102, 153, 204));
+		getFrmTurmas().setBounds(100, 100, 788, 487);
+		getFrmTurmas().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getFrmTurmas().getContentPane().setLayout(null);
 
 		/**
 		 * INICIALIZAÇÃO DAS MÁSCARAS QUE IRÃO SER UTILIZADAS NOS TEXTFIELD'S 
@@ -327,7 +296,7 @@ public class Teste {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setViewportBorder(null);
 		scrollPane.setBounds(10, 11, 740, 164);
-		frmTurmas.getContentPane().add(scrollPane);
+		getFrmTurmas().getContentPane().add(scrollPane);
 
 		/**
 		 * TABELA
@@ -349,17 +318,17 @@ public class Teste {
 																// ser que o valor do index se torna -1
 						textField_Nome.setText(t.getNomeCompleto());
 						textField_Abreviacao.setText(t.getNomeAbreviado());
-						textField_Capacidade.setText(String.valueOf(t.getCapacidade()));
-						textField_Codigo.setText(String.valueOf(t.getCodigo()));
-						textField_Ano.setText(String.valueOf(t.getAno()));
-						textField_Semestre.setText(String.valueOf(t.getSemestre()));
-						textField_Curso.setText(String.valueOf(t.getCurso()));
+						textField_Capacidade.setText(String.format("%03d",t.getCapacidade()));
+						textField_Codigo.setText(String.format("%04d", t.getCodigo()));
+						textField_Ano.setText(String.format("%04d", t.getAno()));
+						textField_Semestre.setText(String.format("%02d", t.getSemestre()));
+						textField_Curso.setText(String.format("%04d",t.getCurso()));
 						// String.valueOf pega o inteiro e retorna uma string para o setText
 						modo = "Selecao";
 						ManipulaInterface();
 					}
 
-					// mudan�as
+					// mudanças
 				} else if (aux == true) {
 					if (indiceAuxiliar >= 0 && indiceAuxiliar < Turmas.turmasCad.size()) {
 						Turmas t = Turmas.turmasCad.get(indiceAuxiliar); // Isso tudo serve para quando clicar em alguma
@@ -411,7 +380,7 @@ public class Teste {
 		panel.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Dados", TitledBorder.LEADING,
 				TitledBorder.TOP, null, Color.RED));
 		panel.setBounds(10, 271, 740, 171);
-		frmTurmas.getContentPane().add(panel);
+		getFrmTurmas().getContentPane().add(panel);
 		panel.setLayout(null);
 
 		/**
@@ -524,7 +493,7 @@ public class Teste {
 
 		textField_Pesquisar = new JFormattedTextField(maskPesquisa);
 		textField_Pesquisar.setBounds(690, 236, 60, 23);
-		frmTurmas.getContentPane().add(textField_Pesquisar);
+		getFrmTurmas().getContentPane().add(textField_Pesquisar);
 		textField_Pesquisar.addFocusListener(new CaretPosicao());
 		textField_Pesquisar.setColumns(10);
 
@@ -553,6 +522,7 @@ public class Teste {
 														// converter um campo que tem "" para inteiro, d� uma exce��o do
 														// tipo NumberFormatException
 						JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de salvar", "Erro", 1);
+						
 					}
 					// Se o codigo for repetido esta mensagem nao pode ser comunicada.
 					if (i == j) {
@@ -561,6 +531,9 @@ public class Teste {
 					} else {
 						LoadTable();
 						JOptionPane.showMessageDialog(null, "Cadastro feito com sucesso!");
+						modo = "Navegar";
+						limparForm();
+						
 					}
 					aux = false;
 					// mudan�as
@@ -578,6 +551,8 @@ public class Teste {
 							Turmas.turmasCad.get(index).setNomeCompleto(textField_Nome.getText());
 							Turmas.turmasCad.get(index).setNomeAbreviado(textField_Abreviacao.getText());
 							JOptionPane.showMessageDialog(null, "Alteração feita com sucesso!");
+							modo = "Navegar";
+							limparForm();
 							LoadTable();
 						}
 						
@@ -587,15 +562,7 @@ public class Teste {
 				}
 					
 
-					modo = "Navegar";
-					ManipulaInterface();
-					textField_Curso.setText(""); // Preenche de volta os textfields's com "null"
-					textField_Semestre.setText("");
-					textField_Ano.setText("");
-					textField_Capacidade.setText("");
-					textField_Nome.setText("");
-					textField_Abreviacao.setText("");
-					textField_Codigo.setText("");
+		
 				
 			}
 		});
@@ -606,35 +573,19 @@ public class Teste {
 		panel.add(btnCancelar);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textField_Curso.setText("");
-				textField_Semestre.setText("");
-				textField_Ano.setText("");
-				textField_Capacidade.setText("");
-				textField_Nome.setText("");
-				textField_Abreviacao.setText("");
-				textField_Codigo.setText("");
-
 				modo = "Navegar";
-				ManipulaInterface();
+				limparForm();
 			}
 		});
 
 		btnNovo = new JButton("Novo");
 		btnNovo.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNovo.setBounds(44, 221, 98, 38);
-		frmTurmas.getContentPane().add(btnNovo);
+		getFrmTurmas().getContentPane().add(btnNovo);
 		btnNovo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				textField_Curso.setText("");
-				textField_Semestre.setText("");
-				textField_Ano.setText("");
-				textField_Capacidade.setText("");
-				textField_Nome.setText("");
-				textField_Abreviacao.setText("");
-				textField_Codigo.setText("");
-
 				modo = "Novo";
-				ManipulaInterface();
+				limparForm();
 
 			}
 		});
@@ -642,7 +593,7 @@ public class Teste {
 		btnAlterar = new JButton("Alterar");
 		btnAlterar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnAlterar.setBounds(154, 221, 98, 38);
-		frmTurmas.getContentPane().add(btnAlterar);
+		getFrmTurmas().getContentPane().add(btnAlterar);
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				modo = "Alterar";
@@ -653,7 +604,7 @@ public class Teste {
 		btnPesquisar = new JButton("Pesquisar");
 		btnPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnPesquisar.setBounds(603, 236, 89, 23);
-		frmTurmas.getContentPane().add(btnPesquisar);
+		getFrmTurmas().getContentPane().add(btnPesquisar);
 		btnPesquisar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int codigo = 0, j = 0;
@@ -700,7 +651,7 @@ public class Teste {
 		btnExcluir = new JButton("Excluir");
 		btnExcluir.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnExcluir.setBounds(264, 221, 98, 38);
-		frmTurmas.getContentPane().add(btnExcluir);
+		getFrmTurmas().getContentPane().add(btnExcluir);
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if ((JOptionPane.showConfirmDialog(null, "Deseja excluir a turma selecionada?", null,
@@ -731,23 +682,36 @@ public class Teste {
 		btnAtualizar = new JButton("Atualizar");
 		btnAtualizar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnAtualizar.setBounds(500, 236, 89, 23);
-		frmTurmas.getContentPane().add(btnAtualizar);
+		getFrmTurmas().getContentPane().add(btnAtualizar);
 		btnAtualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LoadTable();
-				textField_Curso.setText("");
-				textField_Semestre.setText("");
-				textField_Ano.setText("");
-				textField_Capacidade.setText("");
-				textField_Nome.setText("");
-				textField_Abreviacao.setText("");
-				textField_Codigo.setText("");
 				modo = "Navegar";
-				ManipulaInterface();
+				limparForm();
 				aux = false;
 
 			}
 
 		});
+	}
+
+	private void limparForm() {
+	
+		textField_Curso.setText("");
+		textField_Semestre.setText("");
+		textField_Ano.setText("");
+		textField_Capacidade.setText("");
+		textField_Nome.setText("");
+		textField_Abreviacao.setText("");
+		textField_Codigo.setText("");
+		ManipulaInterface();
+	}
+
+	public JFrame getFrmTurmas() {
+		return frmTurmas;
+	}
+
+	public void setFrmTurmas(JFrame frmTurmas) {
+		this.frmTurmas = frmTurmas;
 	}
 }
