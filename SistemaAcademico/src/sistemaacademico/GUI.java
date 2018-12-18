@@ -24,7 +24,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
 
-public class Teste {
+public class GUI {
 
 	private JFrame frmTurmas;
 	private JTable table;
@@ -79,14 +79,27 @@ public class Teste {
 			table.getColumnModel().getColumn(6).setPreferredWidth(30);
 		}
 	}
-
+	/**
+	 * Método responsável por limpar os campos de texto e chamar o metodo de manipular a interface
+	 */
+	private void limparForm() {
+		
+		textField_Curso.setText("");
+		textField_Semestre.setText("");
+		textField_Ano.setText("");
+		textField_Capacidade.setText("");
+		textField_Nome.setText("");
+		textField_Abreviacao.setText("");
+		textField_Codigo.setText("");
+		ManipulaInterface();
+	}
 
 	
 	/**
 	 * Create the application.
 	 */
 
-	public Teste() {
+	public GUI() {
 		initialize();
 
 		btnSalvar.setEnabled(false);
@@ -114,8 +127,9 @@ public class Teste {
 	/**
 	 * ManipulaInterface
 	 * 
-	 * -M�todo responsável por habilitar e desabilitar os botões nos modos de interação com a interface. 
-	 * -Realiza também a troca de cores dos campos de texto para deixar claro que a textField não está disponível para interação
+	 * -Método responsável por habilitar e desabilitar os botões nos modos de interação com a interface; 
+	 * -Realiza também a troca de cores dos campos de texto para deixar claro que a textField não está 
+	 * disponível para interação;
 	 */
 	public void ManipulaInterface() {
 		switch (modo) {
@@ -519,7 +533,7 @@ public class Teste {
 						turma.cadastrar();
 						i = turma.retornar();
 					} catch (NumberFormatException e) {// Como os textfield's são inicializados com "", ao tentar
-														// converter um campo que tem "" para inteiro, d� uma exce��o do
+														// converter um campo que tem "" para inteiro, d� uma exceção do
 														// tipo NumberFormatException
 						JOptionPane.showMessageDialog(null, "Preencha todos os campos antes de salvar", "Erro", 1);
 						
@@ -695,18 +709,9 @@ public class Teste {
 		});
 	}
 
-	private void limparForm() {
-	
-		textField_Curso.setText("");
-		textField_Semestre.setText("");
-		textField_Ano.setText("");
-		textField_Capacidade.setText("");
-		textField_Nome.setText("");
-		textField_Abreviacao.setText("");
-		textField_Codigo.setText("");
-		ManipulaInterface();
-	}
-
+	/**
+	 * Get e set do JFrame
+	 */
 	public JFrame getFrmTurmas() {
 		return frmTurmas;
 	}
