@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * @author Caio Santos, Guilherme Estevam, Gustavo Nunes, Kevin Moura, Natanel Alves, Rafael Diniz.
  * Nome: SistemaAcademico
- * Objetivo: Responsável por gerar o Sistema Academico como um todo
+ * Objetivo: Responsavel por gerar o Sistema Academico como um todo.
  */
 public class SistemaAcademico {
       

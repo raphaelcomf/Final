@@ -3,8 +3,8 @@ package sistemaacademico;
 /**
  * @author Caio Santos, Guilherme Estevam, Gustavo Nunes, Kevin Moura, Natanel Alves, Rafael Diniz.
  * Nome: GUI;
- * Objetivo: Responsável por gerar a interface como também implementar métodos necessários para funcionamento 
- * do sistema de criação, alteração, exclusão e pesquisa de turmas.
+ * Objetivo: Responsavel por gerar a interface como tambem implementar metodos necessarios para funcionamento 
+ * do sistema de criacao, alteracao, exclusao e pesquisa de turmas.
  * 
  * 
  */
@@ -61,7 +61,7 @@ public class GUI {
 
 	/**
 	 *  
-	 * Método responsável por carregar a tabela com os objetos do ArrayList.
+	 * Metodo responsavel por carregar a tabela com os objetos do ArrayList.
 	 */
 
 	public void LoadTable() {
@@ -87,7 +87,7 @@ public class GUI {
 		}
 	}
 	/**
-	 * Método responsável por limpar os campos de texto e chamar o metodo de manipular a interface.
+	 * Metodo responsavel por limpar os campos de texto e chamar o metodo de manipular a interface.
 	 */
 	private void limparForm() {
 		
@@ -134,9 +134,9 @@ public class GUI {
 	/**
 	 * ManipulaInterface
 	 * 
-	 * Método responsável por habilitar e desabilitar os botões nos modos de interação com a interface. 
-	 * Realiza também a troca de cores dos campos de texto para deixar claro que a textField não está 
-	 * disponível para interação.
+	 * Metodo responsavel por habilitar e desabilitar os botoes nos modos de interacao com a interface. 
+	 * Realiza tambem a troca de cores dos campos de texto para deixar claro que a textField nao esta 
+	 * disponivel para interacao.
 	 */
 	public void ManipulaInterface() {
 		switch (modo) {
@@ -272,7 +272,7 @@ public class GUI {
 	}
 
 	/**
-	 * Inicialização dos componentes.
+	 * Inicializacao dos componentes.
 	 */
 	private void initialize() {
 		setFrmTurmas(new JFrame());
@@ -286,8 +286,8 @@ public class GUI {
 		getFrmTurmas().getContentPane().setLayout(null);
 
 		/**
-		 * INICIALIZACAO DAS MASCARAS QUE IRAO SER UTILIZADAS NOS TEXTFIELD'S 
-		 * Mascaras são utilizadas para formatar o campo de texto da forma que quiser.
+		 * INICIALIZACAO DAS MASCARAS QUE IRAO SER UTILIZADAS NOS TEXTFIELDS 
+		 * Mascaras sao utilizadas para formatar o campo de texto da forma que quiser.
 		 */
 		MaskFormatter maskCurso = null;
 		MaskFormatter maskAno = null;
@@ -402,7 +402,7 @@ public class GUI {
 		}
 
 		/**
-		 * PAINÉIS
+		 * PAINEIS
 		 */
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Dados", TitledBorder.LEADING,
@@ -412,7 +412,7 @@ public class GUI {
 		panel.setLayout(null);
 
 		/**
-		 * JLABEL'S
+		 * JLABELS
 		 */
 
 		JLabel lblCurso = new JLabel("Curso:");
@@ -467,7 +467,7 @@ public class GUI {
 		panel.add(lblEx_3);
 
 		/**
-		 * CAMPOS DE TEXTO (TEXTFIELD'S)
+		 * CAMPOS DE TEXTO (TEXTFIELDS)
 		 */
 
 		textField_Curso = new JFormattedTextField(maskCurso);
@@ -526,7 +526,7 @@ public class GUI {
 		textField_Pesquisar.setColumns(10);
 
 		/**
-		 * BOTÕES
+		 * BOTOES
 		 */
 	
 		btnSalvar = new JButton("Salvar");

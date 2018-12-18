@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
  *
  * @author Caio Santos, Guilherme Estevam, Gustavo Nunes, Kevin Moura, Natanel Alves, Rafael Diniz
  * Nome: Turmas
- * Objetivo: Classe que define uma turma de uma instituição de ensino
+ * Objetivo: Classe que define uma turma de uma instituicao de ensino
  */
 
 
