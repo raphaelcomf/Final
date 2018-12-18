@@ -1,5 +1,11 @@
 package sistemaacademico;
 
+/**
+*
+* @author Caio Santos, Guilherme Estevam, Gustavo Nunes, Kevin Moura, Natanel Alves, Rafael Diniz.
+* Nome: CaretPosicao
+* Objetivo: "Setar" o cursor no ínicio para digitação nas TextBox's
+*/
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 

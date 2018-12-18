@@ -1,14 +1,11 @@
 package sistemaacademico;
 /**
  *
- * @author Wanderley de Souza Alencar
+ * @author Caio Santos, Guilherme Estevam, Gustavo Nunes, Kevin Moura, Natanel Alves, Rafael Diniz.
+ * Nome: Coisa
+ * Objetivo: Representa um objeto inanimado ("coisa")
  */
-/*
-* Nome.......: Coisa
-* Objetivo...: Representa um objeto inanimado ("coisa") 
-* Observacoes: 
-*              
-*/
+
 public abstract class Coisa {
     int                             codigo;
     String                          nomeAbreviado;

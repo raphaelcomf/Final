@@ -1,14 +1,21 @@
 package sistemaacademico;
 
+/**
+ * @author Caio Santos, Guilherme Estevam, Gustavo Nunes, Kevin Moura, Natanel Alves, Rafael Diniz.
+ * Nome: GUI;
+ * Objetivo: Responsável por gerar a interface como também implementar métodos necessários para funcionamento 
+ * do sistema de criação, alteração, exclusão e pesquisa de turmas.
+ * 
+ * 
+ */
+
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.ParseException; //Importe para a mascara
-
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -53,8 +60,8 @@ public class GUI {
 	}
 
 	/**
-	 * LoadTable 
-	 * -Carrega a tabela com os objetos do ArrayList
+	 *  
+	 * Método responsável por carregar a tabela com os objetos do ArrayList.
 	 */
 
 	public void LoadTable() {
@@ -80,7 +87,7 @@ public class GUI {
 		}
 	}
 	/**
-	 * Método responsável por limpar os campos de texto e chamar o metodo de manipular a interface
+	 * Método responsável por limpar os campos de texto e chamar o metodo de manipular a interface.
 	 */
 	private void limparForm() {
 		
@@ -96,7 +103,7 @@ public class GUI {
 
 	
 	/**
-	 * Create the application.
+	 * Cria a interface.
 	 */
 
 	public GUI() {
@@ -127,9 +134,9 @@ public class GUI {
 	/**
 	 * ManipulaInterface
 	 * 
-	 * -Método responsável por habilitar e desabilitar os botões nos modos de interação com a interface; 
-	 * -Realiza também a troca de cores dos campos de texto para deixar claro que a textField não está 
-	 * disponível para interação;
+	 * Método responsável por habilitar e desabilitar os botões nos modos de interação com a interface. 
+	 * Realiza também a troca de cores dos campos de texto para deixar claro que a textField não está 
+	 * disponível para interação.
 	 */
 	public void ManipulaInterface() {
 		switch (modo) {
@@ -265,7 +272,7 @@ public class GUI {
 	}
 
 	/**
-	 * INICIALIZAÇÃO DOS COMPONENTES
+	 * Inicialização dos componentes.
 	 */
 	private void initialize() {
 		setFrmTurmas(new JFrame());
@@ -296,6 +303,14 @@ public class GUI {
 			maskCodigo = new MaskFormatter("####"); // 4 digitos numéricos são obrigatórios
 			maskCapacidade = new MaskFormatter("###"); // 3 digitos numéricos são obrigatórios
 			maskPesquisa = new MaskFormatter("####");
+			
+			maskCodigo.setPlaceholder("");
+			maskCurso.setPlaceholder("");
+			maskAno.setPlaceholder("");    //Quando o TextField não for preenchido como deve ser, ele é "apagado"
+			maskSemestre.setPlaceholder("");
+			maskCapacidade.setPlaceholder("");
+			maskPesquisa.setPlaceholder("");
+			
 
 		} catch (ParseException e) {
 			System.err.println("Erro na formatação.: " + e.getMessage());
@@ -337,7 +352,6 @@ public class GUI {
 						textField_Ano.setText(String.format("%04d", t.getAno()));
 						textField_Semestre.setText(String.format("%02d", t.getSemestre()));
 						textField_Curso.setText(String.format("%04d",t.getCurso()));
-						// String.valueOf pega o inteiro e retorna uma string para o setText
 						modo = "Selecao";
 						ManipulaInterface();
 					}

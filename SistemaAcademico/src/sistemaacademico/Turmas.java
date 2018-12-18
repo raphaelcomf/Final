@@ -6,13 +6,12 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Wanderley de Souza Alencar
+ * @author Caio Santos, Guilherme Estevam, Gustavo Nunes, Kevin Moura, Natanel Alves, Rafael Diniz
+ * Nome: Turmas
+ * Objetivo: Classe que define uma turma de uma instituição de ensino
  */
-/*
-* Nome.......: Turmas
-* Objetivo...: Representar uma turma da institui��o de ensino.
-* Observacoes:
-*/
+
+
 public class Turmas extends Coisa {
     int                             capacidade;
     int                             ano;
@@ -79,11 +78,6 @@ public class Turmas extends Coisa {
     }
   
   
-  
-  
-  
-  
-  
   @Override
     public void cadastrar() {
     // Verificando se o codigo e unico.
@@ -129,11 +123,12 @@ public class Turmas extends Coisa {
 
     @Override
     public void consultar(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    	 //Não foi utilizada, implementação pela interface
+        
     }
 
     @Override
     public void excluir(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Não foi utilizada, implementação pela interface
     }
 }
