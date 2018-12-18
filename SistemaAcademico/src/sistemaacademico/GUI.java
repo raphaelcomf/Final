@@ -286,7 +286,7 @@ public class GUI {
 		getFrmTurmas().getContentPane().setLayout(null);
 
 		/**
-		 * INICIALIZAÇÃO DAS MÁSCARAS QUE IRÃO SER UTILIZADAS NOS TEXTFIELD'S 
+		 * INICIALIZACAO DAS MASCARAS QUE IRAO SER UTILIZADAS NOS TEXTFIELD'S 
 		 * Mascaras são utilizadas para formatar o campo de texto da forma que quiser.
 		 */
 		MaskFormatter maskCurso = null;
@@ -528,7 +528,7 @@ public class GUI {
 		/**
 		 * BOTÕES
 		 */
-
+	
 		btnSalvar = new JButton("Salvar");
 		btnSalvar.setFont(new Font("SansSerif", Font.BOLD, 12));
 		btnSalvar.setBounds(530, 117, 95, 35);
